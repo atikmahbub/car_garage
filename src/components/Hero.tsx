@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { MaskedLines, Magnetic, easeOutExpo } from "./motion";
+import { ArrowRight } from "./icons";
 
 export default function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -13,7 +14,7 @@ export default function Hero() {
   });
 
   const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "22%"]);
-  const bgScale = useTransform(scrollYProgress, [0, 1], [1.06, 1.2]);
+  const bgScale = useTransform(scrollYProgress, [0, 1], [1, 1.12]);
   const textY = useTransform(scrollYProgress, [0, 1], ["0%", "60%"]);
   const fade = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
 
@@ -24,14 +25,17 @@ export default function Hero() {
       className="relative flex min-h-svh flex-col justify-end overflow-hidden pt-24"
     >
       {/* background */}
-      <motion.div style={{ y: bgY, scale: bgScale }} className="absolute inset-0">
+      <motion.div
+        style={{ y: bgY, scale: bgScale }}
+        className="absolute inset-x-0 top-0 h-[56svh] md:inset-0 md:h-auto"
+      >
         <Image
           src="/images/hero.jpg"
           alt="Red Ferrari 488 GTB in a dramatic showroom"
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[50%_62%] md:object-center"
+          className="object-cover object-center"
         />
         {/* soft overlays for text legibility */}
         <div className="absolute inset-0 bg-carbon/35" />
@@ -49,7 +53,7 @@ export default function Hero() {
           transition={{ delay: 0.35, duration: 0.8, ease: easeOutExpo }}
           className="eyebrow mb-6"
         >
-          DVSA Approved MOT Centre — London
+          Independent Service &amp; Repair Centre — London
         </motion.p>
 
         <MaskedLines
@@ -70,9 +74,9 @@ export default function Hero() {
             transition={{ delay: 0.95, duration: 0.9, ease: easeOutExpo }}
             className="max-w-md text-sm leading-relaxed text-smoke sm:text-[15px]"
           >
-            MOT testing, precision servicing and diagnostics — dealership
-            standards with independent honesty. Trusted by London drivers for
-            over 15 years.
+            Short and full servicing, brakes, suspension, electrical and
+            transmission repairs — dealership standards with independent
+            honesty. Trusted by London drivers for over 15 years.
           </motion.p>
 
           <motion.div
@@ -87,10 +91,8 @@ export default function Hero() {
                 className="group relative flex w-full items-center justify-center gap-3 overflow-hidden bg-ember px-8 py-4 font-semibold text-carbon sm:w-auto"
               >
                 <span className="absolute inset-0 -translate-x-full bg-bone transition-transform duration-400 ease-out group-hover:translate-x-0" />
-                <span className="relative">Book Your MOT</span>
-                <span className="relative transition-transform duration-300 group-hover:translate-x-1.5">
-                  →
-                </span>
+                <span className="relative">Book a Service</span>
+                <ArrowRight className="relative h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5" />
               </a>
             </Magnetic>
             <Magnetic className="w-full sm:w-auto">

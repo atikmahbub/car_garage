@@ -3,6 +3,7 @@
 import { FormEvent, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Reveal, MaskedLines, Magnetic } from "./motion";
+import { ArrowRight, ArrowUpRight } from "./icons";
 
 const inputCls =
   "w-full border border-line bg-onyx px-4 py-3.5 text-sm text-bone placeholder:text-smoke/50 outline-none transition-colors duration-300 focus:border-ember";
@@ -45,21 +46,35 @@ export default function Contact() {
               <div>
                 <div className="eyebrow mb-2 text-smoke!">Call the workshop</div>
                 <a
-                  href="tel:+442080001234"
+                  href="tel:+447899261546"
                   className="display text-3xl transition-colors hover:text-ember sm:text-4xl"
                 >
-                  020 8000 1234
+                  +44 7899 261546
                 </a>
               </div>
             </Reveal>
             <Reveal delay={0.25}>
               <div>
+                <div className="eyebrow mb-2 text-smoke!">WhatsApp us</div>
+                <a
+                  href="https://wa.me/447899261546"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-[15px] text-bone/90 transition-colors hover:text-ember"
+                >
+                  Message us on WhatsApp
+                  <ArrowUpRight className="h-3.5 w-3.5" />
+                </a>
+              </div>
+            </Reveal>
+            <Reveal delay={0.3}>
+              <div>
                 <div className="eyebrow mb-2 text-smoke!">Email us</div>
                 <a
-                  href="mailto:bookings@argarage.co.uk"
+                  href="mailto:bookings@argarage.uk"
                   className="text-[15px] text-bone/90 transition-colors hover:text-ember"
                 >
-                  bookings@argarage.co.uk
+                  bookings@argarage.uk
                 </a>
               </div>
             </Reveal>
@@ -131,13 +146,13 @@ export default function Contact() {
                         Service
                       </label>
                       <select id="service" className={`${inputCls} appearance-none`}>
-                        <option>MOT Test</option>
+                        <option>Short Service</option>
                         <option>Full Service</option>
-                        <option>Interim Service</option>
-                        <option>Diagnostics</option>
-                        <option>Brakes / Clutch</option>
-                        <option>Tyres / Alignment</option>
-                        <option>Air Con</option>
+                        <option>Brakes</option>
+                        <option>Suspension</option>
+                        <option>Electrical</option>
+                        <option>Transmission / Clutch</option>
+                        <option>Lighting / Bulbs</option>
                         <option>Something else</option>
                       </select>
                     </div>
@@ -162,9 +177,7 @@ export default function Contact() {
                     >
                       <span className="absolute inset-0 -translate-x-full bg-bone transition-transform duration-400 ease-out group-hover:translate-x-0" />
                       <span className="relative">Request Booking</span>
-                      <span className="relative transition-transform duration-300 group-hover:translate-x-1.5">
-                        →
-                      </span>
+                      <ArrowRight className="relative h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5" />
                     </button>
                   </Magnetic>
 

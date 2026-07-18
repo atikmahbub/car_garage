@@ -8,6 +8,7 @@ import {
   useScroll,
 } from "framer-motion";
 import { easeOutExpo } from "./motion";
+import { ArrowUpRight } from "./icons";
 
 const links = [
   { label: "Home", href: "#top" },
@@ -58,7 +59,7 @@ export default function Nav() {
               href="#contact"
               className="hidden items-center gap-2 border border-bone/20 px-5 py-2.5 text-[13px] font-semibold tracking-wide text-bone transition-colors duration-300 hover:border-ember hover:text-ember sm:inline-flex"
             >
-              Book Your MOT
+              Book a Service
             </a>
 
             <button
@@ -143,16 +144,24 @@ export default function Nav() {
                 className="space-y-4 border-t border-line pt-6"
               >
                 <a
-                  href="tel:+442080001234"
+                  href="tel:+447899261546"
                   className="block font-mono text-sm tracking-[0.15em] text-smoke transition-colors hover:text-ember"
                 >
-                  020 8000 1234
+                  +44 7899 261546
                 </a>
                 <a
-                  href="mailto:bookings@argarage.co.uk"
+                  href="https://wa.me/447899261546"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 font-mono text-sm tracking-[0.15em] text-smoke transition-colors hover:text-ember"
+                >
+                  WhatsApp <ArrowUpRight className="h-3.5 w-3.5" />
+                </a>
+                <a
+                  href="mailto:bookings@argarage.uk"
                   className="block font-mono text-sm tracking-[0.15em] text-smoke transition-colors hover:text-ember"
                 >
-                  bookings@argarage.co.uk
+                  bookings@argarage.uk
                 </a>
                 <p className="font-mono text-xs leading-relaxed tracking-[0.15em] text-smoke/60 uppercase">
                   Mon–Fri 8:00–18:00 · Sat 8:30–16:00

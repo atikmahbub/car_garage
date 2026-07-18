@@ -55,15 +55,19 @@ export function MaskedLines({
   lineClassName?: string;
   delay?: number;
 }) {
+  // Observe the mask container: the lines themselves start fully clipped by
+  // overflow-hidden, so an observer on them would never report intersection.
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-60px" });
+
   return (
-    <div className={className}>
+    <div ref={ref} className={className}>
       {lines.map((line, i) => (
         <div key={i} className="overflow-hidden">
           <motion.div
             className={lineClassName}
             initial={{ y: "110%" }}
-            whileInView={{ y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
+            animate={inView ? { y: 0 } : undefined}
             transition={{
               duration: 1,
               delay: delay + i * 0.09,

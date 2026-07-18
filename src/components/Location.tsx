@@ -1,6 +1,7 @@
 "use client";
 
 import { Reveal, MaskedLines, Magnetic } from "./motion";
+import { ArrowRight, ArrowUpRight } from "./icons";
 
 const details = [
   {
@@ -16,8 +17,21 @@ const details = [
   {
     label: "Phone",
     value: (
-      <a href="tel:+442080001234" className="transition-colors hover:text-ember">
-        020 8000 1234
+      <a href="tel:+447899261546" className="transition-colors hover:text-ember">
+        +44 7899 261546
+      </a>
+    ),
+  },
+  {
+    label: "WhatsApp",
+    value: (
+      <a
+        href="https://wa.me/447899261546"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center gap-1.5 transition-colors hover:text-ember"
+      >
+        +44 7899 261546 <ArrowUpRight className="h-3.5 w-3.5" />
       </a>
     ),
   },
@@ -25,10 +39,10 @@ const details = [
     label: "Email",
     value: (
       <a
-        href="mailto:bookings@argarage.co.uk"
+        href="mailto:bookings@argarage.uk"
         className="transition-colors hover:text-ember"
       >
-        bookings@argarage.co.uk
+        bookings@argarage.uk
       </a>
     ),
   },
@@ -100,9 +114,7 @@ export default function Location() {
               >
                 <span className="absolute inset-0 -translate-x-full bg-ember transition-transform duration-400 ease-out group-hover:translate-x-0" />
                 <span className="relative">Get Directions</span>
-                <span className="relative transition-transform duration-300 group-hover:translate-x-1.5">
-                  →
-                </span>
+                <ArrowRight className="relative h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5" />
               </a>
             </Magnetic>
           </Reveal>

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Reveal, MaskedLines, easeOutExpo } from "./motion";
+import { ArrowRight } from "./icons";
 
 const steps = [
   {
@@ -64,7 +65,7 @@ export default function Process() {
               {/* connecting arrow */}
               {i < steps.length - 1 && (
                 <span className="absolute top-1/2 -right-3 z-10 hidden -translate-y-1/2 text-ember lg:block">
-                  →
+                  <ArrowRight className="h-4 w-4" />
                 </span>
               )}
             </motion.div>

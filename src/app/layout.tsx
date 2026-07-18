@@ -23,13 +23,17 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "A & R Garage — MOT, Servicing & Performance | London, UK",
+  metadataBase: new URL("https://argarage.uk"),
+  alternates: { canonical: "/" },
+  title: "A & R Garage — Car Servicing & Repairs | London, UK",
   description:
-    "A & R Garage is a DVSA-approved MOT and service centre. Precision diagnostics, servicing, tyres and performance work — trusted by drivers across London.",
+    "A & R Garage is an independent service and repair centre. Short and full servicing, brakes, suspension, electrical, transmission and lighting — trusted by drivers across London.",
   openGraph: {
     title: "A & R Garage — Engineered Care For Your Car",
     description:
-      "DVSA-approved MOT centre. Servicing, diagnostics, tyres and performance work in London.",
+      "Independent garage in London. Short and full servicing, brakes, suspension, electrical and transmission repairs.",
+    url: "https://argarage.uk",
+    siteName: "A & R Garage",
     type: "website",
   },
 };
