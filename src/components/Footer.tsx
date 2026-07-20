@@ -33,9 +33,7 @@ export default function Footer() {
 
           <div className="font-mono text-[12px] leading-loose tracking-[0.1em] text-smoke uppercase">
             <div className="eyebrow mb-3">Workshop</div>
-            Unit 7, Lockfield Industrial Estate
-            <br />
-            London E17 5QJ
+            Nottingham, United Kingdom
             <br />
             <a href="tel:+447899261546" className="text-bone transition-colors hover:text-ember">
               +44 7899 261546

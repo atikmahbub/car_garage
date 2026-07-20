@@ -14,10 +14,6 @@ const points = [
     title: "OE-grade parts only",
     desc: "Original-equipment quality on every job, so your manufacturer warranty stays fully intact.",
   },
-  {
-    title: "12-month workmanship guarantee",
-    desc: "Every repair is road-tested and backed for 12 months or 12,000 miles — whichever comes later.",
-  },
 ];
 
 export default function Workshop() {
@@ -88,8 +84,8 @@ export default function Workshop() {
             <p className="mb-12 max-w-lg text-[15px] leading-relaxed text-smoke">
               A &amp; R Garage was founded on a simple idea: the care your car
               gets at a main dealer, without the main-dealer bill or the
-              upsell. Two brothers, one workshop, and fifteen years of London
-              drivers who won&apos;t take their cars anywhere else.
+              upsell. Seven years of Nottingham drivers who won&apos;t take
+              their cars anywhere else.
             </p>
           </Reveal>
 

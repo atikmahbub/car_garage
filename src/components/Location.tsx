@@ -6,13 +6,7 @@ import { ArrowRight, ArrowUpRight } from "./icons";
 const details = [
   {
     label: "Address",
-    value: (
-      <>
-        Unit 7, Lockfield Industrial Estate
-        <br />
-        London E17 5QJ, United Kingdom
-      </>
-    ),
+    value: <>Nottingham, United Kingdom</>,
   },
   {
     label: "Phone",
@@ -68,9 +62,9 @@ export default function Location() {
           />
           <Reveal delay={0.15}>
             <p className="mb-12 max-w-md text-[15px] leading-relaxed text-smoke">
-              Two minutes from the North Circular with free customer parking on
-              site. Drop the car in on your commute — we&apos;re a short walk
-              from Blackhorse Road station.
+              Free customer parking on site, with easy access from across
+              Nottingham. Drop the car in on your commute — collection and
+              drop-off made simple.
             </p>
           </Reveal>
 
@@ -107,7 +101,7 @@ export default function Location() {
           <Reveal delay={0.4} className="mt-10">
             <Magnetic className="inline-block">
               <a
-                href="https://maps.google.com/?q=Blackhorse+Road,+Walthamstow,+London+E17"
+                href="https://maps.google.com/?q=Nottingham,+United+Kingdom"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group relative inline-flex items-center gap-3 overflow-hidden bg-bone px-8 py-4 font-semibold text-carbon"
@@ -125,7 +119,7 @@ export default function Location() {
           <div className="relative h-105 overflow-hidden border border-line sm:h-130">
             <iframe
               title="A & R Garage location map"
-              src="https://www.google.com/maps?q=Blackhorse+Road,+Walthamstow,+London+E17&z=14&output=embed"
+              src="https://www.google.com/maps?q=Nottingham,+United+Kingdom&z=12&output=embed"
               className="map-dark h-full w-full border-0"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

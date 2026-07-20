@@ -53,7 +53,7 @@ export default function Hero() {
           transition={{ delay: 0.35, duration: 0.8, ease: easeOutExpo }}
           className="eyebrow mb-6"
         >
-          Independent Service &amp; Repair Centre — London
+          Independent Service &amp; Repair Centre — Nottingham
         </motion.p>
 
         <MaskedLines
@@ -76,7 +76,7 @@ export default function Hero() {
           >
             Short and full servicing, brakes, suspension, electrical and
             transmission repairs — dealership standards with independent
-            honesty. Trusted by London drivers for over 15 years.
+            honesty. Trusted by Nottingham drivers for over 7 years.
           </motion.p>
 
           <motion.div
