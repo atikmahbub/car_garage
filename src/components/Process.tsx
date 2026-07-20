@@ -20,11 +20,6 @@ const steps = [
     title: "The work gets done",
     desc: "OE-grade parts, torque-spec fitting, and a technician who treats your car like their own. Courtesy car if you need one.",
   },
-  {
-    num: "04",
-    title: "Road-tested & returned",
-    desc: "Every car is road-tested, washed, and handed back with a 12-month guarantee on the work. Simple as that.",
-  },
 ];
 
 export default function Process() {
