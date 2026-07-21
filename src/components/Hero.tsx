@@ -30,12 +30,12 @@ export default function Hero() {
         className="absolute inset-x-0 top-0 h-[56svh] md:inset-0 md:h-auto"
       >
         <Image
-          src="/images/hero.jpg"
-          alt="Red Ferrari 488 GTB in a dramatic showroom"
+          src="/images/hero-repair-garage-v4.png"
+          alt="Car with an exposed brake assembly raised on a lift in a professional garage"
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center"
+          className="object-cover object-[64%_center] md:object-center"
         />
         {/* soft overlays for text legibility */}
         <div className="absolute inset-0 bg-carbon/35" />

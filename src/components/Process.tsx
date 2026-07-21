@@ -41,7 +41,7 @@ export default function Process() {
           />
         </div>
 
-        <div className="grid grid-cols-1 gap-px bg-line sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-px bg-line sm:grid-cols-2 lg:grid-cols-3">
           {steps.map((s, i) => (
             <motion.div
               key={s.num}
@@ -49,7 +49,9 @@ export default function Process() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.8, delay: i * 0.12, ease: easeOutExpo }}
-              className="group relative bg-onyx p-8 transition-colors duration-500 hover:bg-steel"
+              className={`group relative bg-onyx p-8 transition-colors duration-500 hover:bg-steel ${
+                i === steps.length - 1 ? "sm:col-span-2 lg:col-span-1" : ""
+              }`}
             >
               <div className="display mb-14 text-7xl text-stroke transition-all duration-500 group-hover:text-ember group-hover:[-webkit-text-stroke:0px]">
                 {s.num}

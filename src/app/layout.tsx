@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/hero.jpg",
+        url: "/images/hero-engine.jpg",
         width: 3840,
         height: 2160,
         alt: "A & R Garage — independent car servicing and repair centre in Nottingham",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     title: "A & R Garage — Engineered Care For Your Car",
     description:
       "Independent garage in Nottingham. Car servicing, MOT, brakes, suspension, electrical and transmission repairs.",
-    images: ["/images/hero.jpg"],
+    images: ["/images/hero-engine.jpg"],
   },
   verification: {
     google: "amaR3XyKlq2V667TF7qFrzMQtyfemWH5JT8a8huC4lw",
@@ -65,7 +65,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en-GB" className={`${anton.variable} ${inter.variable} ${jetbrains.variable}`}>
-      <body>
+      <body suppressHydrationWarning>
         <JsonLd />
         <SmoothScroll>{children}</SmoothScroll>
         <Analytics />

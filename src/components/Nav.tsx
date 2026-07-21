@@ -58,7 +58,7 @@ export default function Nav() {
           <div className="flex items-center gap-5">
             <a
               href="#contact"
-              className="hidden items-center gap-2 border border-bone/20 px-5 py-2.5 text-[13px] font-semibold tracking-wide text-bone transition-colors duration-300 hover:border-ember hover:text-ember sm:inline-flex"
+              className="hidden items-center gap-2 border border-bone/50 bg-carbon/55 px-5 py-2.5 text-[13px] font-semibold tracking-wide text-bone shadow-[0_4px_18px_rgba(0,0,0,0.35)] backdrop-blur-md transition-all duration-300 hover:border-ember hover:bg-carbon/80 hover:text-ember focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-ember sm:inline-flex"
             >
               Book a Service
             </a>
