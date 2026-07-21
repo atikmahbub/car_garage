@@ -39,9 +39,9 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/hero-engine.jpg",
-        width: 3840,
-        height: 2160,
+        url: "/images/hero-repair-garage-v4.png",
+        width: 1672,
+        height: 941,
         alt: "A & R Garage — independent car servicing and repair centre in Nottingham",
       },
     ],
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     title: "A & R Garage — Engineered Care For Your Car",
     description:
       "Independent garage in Nottingham. Car servicing, MOT, brakes, suspension, electrical and transmission repairs.",
-    images: ["/images/hero-engine.jpg"],
+    images: ["/images/hero-repair-garage-v4.png"],
   },
   verification: {
     google: "amaR3XyKlq2V667TF7qFrzMQtyfemWH5JT8a8huC4lw",

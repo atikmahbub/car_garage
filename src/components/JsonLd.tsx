@@ -5,7 +5,7 @@ const jsonLd = {
   "@type": "AutoRepair",
   name: siteConfig.name,
   url: "https://argarage.uk",
-  image: "https://argarage.uk/images/hero-engine.jpg",
+  image: "https://argarage.uk/images/hero-repair-garage-v4.png",
   telephone: siteConfig.phone.e164,
   priceRange: "££",
   address: {
