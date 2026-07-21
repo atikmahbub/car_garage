@@ -4,6 +4,7 @@ import { FormEvent, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Reveal, MaskedLines, Magnetic } from "./motion";
 import { ArrowRight, ArrowUpRight } from "./icons";
+import { siteConfig } from "@/lib/siteConfig";
 
 const inputCls =
   "w-full border border-line bg-onyx px-4 py-3.5 text-sm text-bone placeholder:text-smoke/50 outline-none transition-colors duration-300 focus:border-ember";
@@ -46,10 +47,10 @@ export default function Contact() {
               <div>
                 <div className="eyebrow mb-2 text-smoke!">Call the workshop</div>
                 <a
-                  href="tel:+447899261546"
+                  href={`tel:${siteConfig.phone.e164}`}
                   className="display text-3xl transition-colors hover:text-ember sm:text-4xl"
                 >
-                  +44 7899 261546
+                  {siteConfig.phone.display}
                 </a>
               </div>
             </Reveal>
@@ -57,7 +58,7 @@ export default function Contact() {
               <div>
                 <div className="eyebrow mb-2 text-smoke!">WhatsApp us</div>
                 <a
-                  href="https://wa.me/447899261546"
+                  href={siteConfig.phone.whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-[15px] text-bone/90 transition-colors hover:text-ember"
@@ -71,10 +72,10 @@ export default function Contact() {
               <div>
                 <div className="eyebrow mb-2 text-smoke!">Email us</div>
                 <a
-                  href="mailto:bookings@argarage.uk"
+                  href={`mailto:${siteConfig.email}`}
                   className="text-[15px] text-bone/90 transition-colors hover:text-ember"
                 >
-                  bookings@argarage.uk
+                  {siteConfig.email}
                 </a>
               </div>
             </Reveal>

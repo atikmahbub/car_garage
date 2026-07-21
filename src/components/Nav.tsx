@@ -9,6 +9,7 @@ import {
 } from "framer-motion";
 import { easeOutExpo } from "./motion";
 import { ArrowUpRight } from "./icons";
+import { siteConfig, formatHour } from "@/lib/siteConfig";
 
 const links = [
   { label: "Home", href: "#top" },
@@ -144,13 +145,13 @@ export default function Nav() {
                 className="space-y-4 border-t border-line pt-6"
               >
                 <a
-                  href="tel:+447899261546"
+                  href={`tel:${siteConfig.phone.e164}`}
                   className="block font-mono text-sm tracking-[0.15em] text-smoke transition-colors hover:text-ember"
                 >
-                  +44 7899 261546
+                  {siteConfig.phone.display}
                 </a>
                 <a
-                  href="https://wa.me/447899261546"
+                  href={siteConfig.phone.whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-1.5 font-mono text-sm tracking-[0.15em] text-smoke transition-colors hover:text-ember"
@@ -158,13 +159,18 @@ export default function Nav() {
                   WhatsApp <ArrowUpRight className="h-3.5 w-3.5" />
                 </a>
                 <a
-                  href="mailto:bookings@argarage.uk"
+                  href={`mailto:${siteConfig.email}`}
                   className="block font-mono text-sm tracking-[0.15em] text-smoke transition-colors hover:text-ember"
                 >
-                  bookings@argarage.uk
+                  {siteConfig.email}
                 </a>
                 <p className="font-mono text-xs leading-relaxed tracking-[0.15em] text-smoke/60 uppercase">
-                  Mon–Fri 8:00–18:00 · Sat 8:30–16:00
+                  {siteConfig.hours
+                    .map(
+                      (h) =>
+                        `${h.shortLabel} ${formatHour(h.opens)}–${formatHour(h.closes)}`,
+                    )
+                    .join(" · ")}
                 </p>
               </motion.div>
             </motion.aside>

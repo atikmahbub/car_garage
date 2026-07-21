@@ -1,18 +1,20 @@
 "use client";
 
+import { Fragment } from "react";
 import { Reveal, MaskedLines, Magnetic } from "./motion";
 import { ArrowRight, ArrowUpRight } from "./icons";
+import { siteConfig, formatHour } from "@/lib/siteConfig";
 
 const details = [
   {
     label: "Address",
-    value: <>Nottingham, United Kingdom</>,
+    value: <>{siteConfig.address.locality}, {siteConfig.address.country}</>,
   },
   {
     label: "Phone",
     value: (
-      <a href="tel:+447899261546" className="transition-colors hover:text-ember">
-        +44 7899 261546
+      <a href={`tel:${siteConfig.phone.e164}`} className="transition-colors hover:text-ember">
+        {siteConfig.phone.display}
       </a>
     ),
   },
@@ -20,12 +22,12 @@ const details = [
     label: "WhatsApp",
     value: (
       <a
-        href="https://wa.me/447899261546"
+        href={siteConfig.phone.whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
         className="inline-flex items-center gap-1.5 transition-colors hover:text-ember"
       >
-        +44 7899 261546 <ArrowUpRight className="h-3.5 w-3.5" />
+        {siteConfig.phone.display} <ArrowUpRight className="h-3.5 w-3.5" />
       </a>
     ),
   },
@@ -33,10 +35,10 @@ const details = [
     label: "Email",
     value: (
       <a
-        href="mailto:bookings@argarage.uk"
+        href={`mailto:${siteConfig.email}`}
         className="transition-colors hover:text-ember"
       >
-        bookings@argarage.uk
+        {siteConfig.email}
       </a>
     ),
   },
@@ -87,10 +89,14 @@ export default function Location() {
                   Hours
                 </span>
                 <div className="col-span-2 grid max-w-xs grid-cols-2 gap-y-1 text-sm text-smoke">
-                  <span>Mon – Fri</span>
-                  <span className="text-bone">8:00 – 18:00</span>
-                  <span>Saturday</span>
-                  <span className="text-bone">8:30 – 16:00</span>
+                  {siteConfig.hours.map((h) => (
+                    <Fragment key={h.label}>
+                      <span>{h.label}</span>
+                      <span className="text-bone">
+                        {formatHour(h.opens)} – {formatHour(h.closes)}
+                      </span>
+                    </Fragment>
+                  ))}
                   <span>Sunday</span>
                   <span className="text-ember">Closed</span>
                 </div>
@@ -101,7 +107,9 @@ export default function Location() {
           <Reveal delay={0.4} className="mt-10">
             <Magnetic className="inline-block">
               <a
-                href="https://maps.google.com/?q=Nottingham,+United+Kingdom"
+                href={`https://maps.google.com/?q=${encodeURIComponent(
+                  `${siteConfig.address.locality}, ${siteConfig.address.country}`,
+                )}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group relative inline-flex items-center gap-3 overflow-hidden bg-bone px-8 py-4 font-semibold text-carbon"
@@ -119,7 +127,9 @@ export default function Location() {
           <div className="relative h-105 overflow-hidden border border-line sm:h-130">
             <iframe
               title="A & R Garage location map"
-              src="https://www.google.com/maps?q=Nottingham,+United+Kingdom&z=12&output=embed"
+              src={`https://www.google.com/maps?q=${encodeURIComponent(
+                `${siteConfig.address.locality}, ${siteConfig.address.country}`,
+              )}&z=12&output=embed`}
               className="map-dark h-full w-full border-0"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

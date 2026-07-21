@@ -74,9 +74,10 @@ export default function Hero() {
             transition={{ delay: 0.95, duration: 0.9, ease: easeOutExpo }}
             className="max-w-md text-sm leading-relaxed text-smoke sm:text-[15px]"
           >
-            Short and full servicing, brakes, suspension, electrical and
-            transmission repairs — dealership standards with independent
-            honesty. Trusted by Nottingham drivers for over 7 years.
+            Short and full servicing, MOT testing, brakes, suspension,
+            electrical and transmission repairs — dealership standards with
+            independent honesty. Trusted by Nottingham drivers for over 7
+            years.
           </motion.p>
 
           <motion.div

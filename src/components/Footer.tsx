@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { siteConfig } from "@/lib/siteConfig";
 
 export default function Footer() {
   const ref = useRef<HTMLElement>(null);
@@ -33,26 +34,29 @@ export default function Footer() {
 
           <div className="font-mono text-[12px] leading-loose tracking-[0.1em] text-smoke uppercase">
             <div className="eyebrow mb-3">Workshop</div>
-            Nottingham, United Kingdom
+            {siteConfig.address.locality}, {siteConfig.address.country}
             <br />
-            <a href="tel:+447899261546" className="text-bone transition-colors hover:text-ember">
-              +44 7899 261546
+            <a
+              href={`tel:${siteConfig.phone.e164}`}
+              className="text-bone transition-colors hover:text-ember"
+            >
+              {siteConfig.phone.display}
             </a>
             <br />
             <a
-              href="https://wa.me/447899261546"
+              href={siteConfig.phone.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="text-bone transition-colors hover:text-ember"
             >
-              WhatsApp: +44 7899 261546
+              WhatsApp: {siteConfig.phone.display}
             </a>
             <br />
             <a
-              href="mailto:bookings@argarage.uk"
+              href={`mailto:${siteConfig.email}`}
               className="text-bone transition-colors hover:text-ember"
             >
-              bookings@argarage.uk
+              {siteConfig.email}
             </a>
           </div>
 
