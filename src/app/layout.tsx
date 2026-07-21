@@ -53,6 +53,9 @@ export const metadata: Metadata = {
       "Independent garage in Nottingham. Car servicing, MOT, brakes, suspension, electrical and transmission repairs.",
     images: ["/images/hero.jpg"],
   },
+  verification: {
+    google: "amaR3XyKlq2V667TF7qFrzMQtyfemWH5JT8a8huC4lw",
+  },
 };
 
 export default function RootLayout({
