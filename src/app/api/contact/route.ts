@@ -2,8 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 import { siteConfig } from "@/lib/siteConfig";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 // Sender must be on a Resend-verified domain. This project's Resend account
 // must have `argarage.uk` verified as its (free-tier) domain. Override the
 // full "Name <addr>" via RESEND_FROM if needed.
@@ -81,6 +79,7 @@ export async function POST(request: NextRequest) {
   `;
 
   try {
+    const resend = new Resend(process.env.RESEND_API_KEY);
     const { data, error } = await resend.emails.send({
       from: FROM_ADDRESS,
       to: [siteConfig.email],
