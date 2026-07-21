@@ -11,10 +11,45 @@ const inputCls =
 
 export default function Contact() {
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const onSubmit = (e: FormEvent) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSent(true);
+    setError(null);
+    setSubmitting(true);
+
+    const formData = new FormData(e.currentTarget);
+    const payload = {
+      name: formData.get("name"),
+      phone: formData.get("phone"),
+      reg: formData.get("reg"),
+      service: formData.get("service"),
+      message: formData.get("message"),
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) {
+        const data = await res.json().catch(() => null);
+        throw new Error(data?.error ?? "Something went wrong. Please try again.");
+      }
+
+      setSent(true);
+    } catch (err) {
+      setError(
+        err instanceof Error
+          ? err.message
+          : "Something went wrong. Please try again.",
+      );
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -114,7 +149,7 @@ export default function Contact() {
                       <label htmlFor="name" className="eyebrow mb-2 block text-smoke!">
                         Name
                       </label>
-                      <input id="name" required placeholder="John Smith" className={inputCls} />
+                      <input id="name" name="name" required placeholder="John Smith" className={inputCls} />
                     </div>
                     <div>
                       <label htmlFor="phone" className="eyebrow mb-2 block text-smoke!">
@@ -122,6 +157,7 @@ export default function Contact() {
                       </label>
                       <input
                         id="phone"
+                        name="phone"
                         type="tel"
                         required
                         placeholder="07700 900123"
@@ -137,6 +173,7 @@ export default function Contact() {
                       </label>
                       <input
                         id="reg"
+                        name="reg"
                         required
                         placeholder="AB12 CDE"
                         className={`${inputCls} font-mono uppercase`}
@@ -146,7 +183,7 @@ export default function Contact() {
                       <label htmlFor="service" className="eyebrow mb-2 block text-smoke!">
                         Service
                       </label>
-                      <select id="service" className={`${inputCls} appearance-none`}>
+                      <select id="service" name="service" className={`${inputCls} appearance-none`}>
                         <option>Short Service</option>
                         <option>Full Service</option>
                         <option>Brakes</option>
@@ -165,20 +202,35 @@ export default function Contact() {
                     </label>
                     <textarea
                       id="msg"
+                      name="message"
                       rows={4}
                       placeholder="e.g. Knocking noise from front left when braking…"
                       className={`${inputCls} resize-none`}
                     />
                   </div>
 
+                  {error && (
+                    <p
+                      role="alert"
+                      className="border border-ember/40 bg-ember/5 px-4 py-3 text-sm text-ember"
+                    >
+                      {error}
+                    </p>
+                  )}
+
                   <Magnetic className="pt-2">
                     <button
                       type="submit"
-                      className="group relative inline-flex w-full items-center justify-center gap-3 overflow-hidden bg-ember px-8 py-4 font-semibold text-carbon"
+                      disabled={submitting}
+                      className="group relative inline-flex w-full items-center justify-center gap-3 overflow-hidden bg-ember px-8 py-4 font-semibold text-carbon disabled:cursor-not-allowed disabled:opacity-70"
                     >
                       <span className="absolute inset-0 -translate-x-full bg-bone transition-transform duration-400 ease-out group-hover:translate-x-0" />
-                      <span className="relative">Request Booking</span>
-                      <ArrowRight className="relative h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5" />
+                      <span className="relative">
+                        {submitting ? "Sending…" : "Request Booking"}
+                      </span>
+                      {!submitting && (
+                        <ArrowRight className="relative h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5" />
+                      )}
                     </button>
                   </Magnetic>
 
